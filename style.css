@@ -1,67 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    background-color: #043b02;
-    color: white;
-}
-
-input[type="text"] {
-    padding: 5px;
-}
-
-.submit:hover {
-    cursor: pointer;
-}
-
-.submit:active {
-    outline: none;
-}
-
-.submit:focus {
-    outline: none;
-}
-
-.submit {
-    background-color: #ffd740;
-    color: black;
-    border-radius: 20px;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.error-message {
-    color: red;
-}
-
-.hidden {
-    display: none;
-}
-
-a {
-    color: #ffe0b2;
-}
-
-h2 {
-    margin-top: 40px;
-}
-
-
-/* * {
-    box-sizing: border-box;
-}
-
-
-/*Main-Form Styling*/
-
 #state-list {
     border: 1px solid black;
     width: 50px;
@@ -178,5 +114,3 @@ p {
 #state-list-reference {
     text-align: center;
 }
-
-*/
