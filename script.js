@@ -1,66 +1,129 @@
-'use strict'
+"use strict";
 
-const apiKey = 'wveHBixTLgnXr8GvVPJfX9QIOG5d26TS4o6IgTaR';
-const searchUrl = "https://developer.nps.gov/api/v1/parks";
+// put your own value below!
+const apiKey = "wveHBixTLgnXr8GvVPJfX9QIOG5d26TS4o6IgTaR";
+const searchURL = "https://developer.nps.gov/api/v1/parks";
 
-const options = {
-    headers: new Headers({
-        "X-Api-Key": apiKey
-    })
-};
-
-function watchForm() {
-    $('.user-request-form').submit(event => {
-        event.preventDefault();
-        let state = $('#state-list').val();
-        let numberOfResults = $('.results-amount').val();
-        console.log('Im Working');
-        getParks(state, numberOfResults);
-    });
-}
-
-function formatQuery(params) {
-    console.log('query params is working');
+function formatQueryParams(params) {
     const queryItems = Object.keys(params).map(
-        key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
     );
     return queryItems.join("&");
 }
 
-function getParks(query, limit = 10) {
-    console.log('request sent');
+function displayResults(responseJson, maxResults) {
+    // if there are previous results, remove them
+    console.log(responseJson);
+    $("#results-list").empty();
+    // iterate through the data array
+    for (let i = 0; i < responseJson.data.length; i++) {
+        $("#results-list")
+            .append(`<li><h3><a href="${responseJson.data[i].url}">${responseJson.data[i].fullName}</a></h3>
+        <p>${responseJson.data[i].description}</p>
+        <p>${responseJson.data[i].addresses[0].city}, ${responseJson.data[i].addresses[0].stateCode}</p>
+        </li>`);
+    }
+    //display the results section
+    $("#results").removeClass("hidden");
+}
+
+function getParks(query, maxResults) {
     const params = {
         stateCode: query,
-        limit,
+        limit: maxResults,
         api_key: apiKey,
     };
+    const queryString = formatQueryParams(params);
+    const url = searchURL + "?" + queryString;
 
-    const queryString = formatQuery(params)
-    const url = searchUrl + '?' + queryString;
+    console.log(url);
 
     fetch(url)
-        .then(response => response.json())
-        .then(responseJson => displayResults(responseJson))
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then((responseJson) => displayResults(responseJson, maxResults))
+        .catch((err) => {
+            $("#error-message").text(`Something went wrong: ${err.message}`);
+        });
 }
 
-function displayResults(responseJson) {
-    $('.results-display-container').empty();
-    for (let i = 0; i < responseJson.data.length; i++) {
-        $('.results-display-container').append(`
-        <section class="single-result">
-            <div class="name-container">
-            <a id="website" href="${responseJson.data[i].url}" target="_blank"><h2 id="name">${responseJson.data[i].fullName}</h2></a>
-            </div>
-            <div class="description-container">
-                <h3 id="description">${responseJson.data[i].description}</h3>
-            </div>
-            <div class="url-container">
-                <h4 id="url">${responseJson.data[i].url}</h4>
-            </div>
-        </section>
-        `)
-    };
-    $('.results-display-container').removeClass('hidden');
+function watchForm() {
+    $("form").submit((event) => {
+        event.preventDefault();
+        const searchState = $("#search-state").val();
+        const maxResults = $("#max-results").val();
+        getParks(searchState, maxResults);
+    });
 }
 
-$(watchForm)
+$(watchForm);
+// 'use strict'
+
+// const apiKey = 'wveHBixTLgnXr8GvVPJfX9QIOG5d26TS4o6IgTaR';
+// const searchUrl = "https://developer.nps.gov/api/v1/parks";
+
+// const options = {
+//     headers: new Headers({
+//         "X-Api-Key": apiKey
+//     })
+// };
+
+// function watchForm() {
+//     $('.user-request-form').submit(event => {
+//         event.preventDefault();
+//         let state = $('#state-list').val();
+//         let numberOfResults = $('.results-amount').val();
+//         console.log('Im Working');
+//         getParks(state, numberOfResults);
+//     });
+// }
+
+// function formatQuery(params) {
+//     console.log('query params is working');
+//     const queryItems = Object.keys(params).map(
+//         key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+//     );
+//     return queryItems.join("&");
+// }
+
+// function getParks(query, limit = 10) {
+//     console.log('request sent');
+//     const params = {
+//         stateCode: query,
+//         limit,
+//         api_key: apiKey,
+//     };
+
+//     const queryString = formatQuery(params)
+//     const url = searchUrl + '?' + queryString;
+
+//     fetch(url)
+//         .then(response => response.json())
+//         .then(responseJson => displayResults(responseJson))
+// }
+
+// function displayResults(responseJson) {
+//     $('.results-display-container').empty();
+//     for (let i = 0; i < responseJson.data.length; i++) {
+//         $('.results-display-container').append(`
+//         <section class="single-result">
+//             <div class="name-container">
+//             <a id="website" href="${responseJson.data[i].url}" target="_blank"><h2 id="name">${responseJson.data[i].fullName}</h2></a>
+//             </div>
+//             <div class="description-container">
+//                 <h3 id="description">${responseJson.data[i].description}</h3>
+//             </div>
+//             <div class="url-container">
+//                 <h4 id="url">${responseJson.data[i].url}</h4>
+//             </div>
+//         </section>
+//         `)
+//     };
+//     $('.results-display-container').removeClass('hidden');
+// }
+
+// $(watchForm)
