@@ -1,7 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
 #state-list {
     border: 1px solid black;
     width: 50px;
@@ -102,7 +98,7 @@ p {
     margin-bottom: 15px;
 }
 
-#url {
+#description {
     color: #222;
 }
 
