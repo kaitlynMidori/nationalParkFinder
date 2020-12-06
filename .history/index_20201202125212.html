@@ -1,6 +1,32 @@
-
-
 <!DOCTYPE html>
+<html>
+  <head>
+    <title>Nick's Vacation API Assignment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <h1>Vacation Maker</h1>
+    <main>
+      <form id="user-input">
+        <label for="state-selector">Enter a state.</label>
+        <input type="text" value="California" id="state-selector"></input>
+        <label for="results-length">Number of Results:</label>
+        <input id="results-length" type="number" max="50" value="10"></input>
+        <input type="submit" value="Go!">
+      </form>
+      <Section>
+        <ul id="search-results">
+
+        </ul>
+      </Section>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -41,4 +67,4 @@
     <script src="script.js"></script>
 </body>
 
-</html>
+</html> -->

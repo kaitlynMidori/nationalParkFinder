@@ -9,6 +9,8 @@ function formatQueryParams(params) {
     const queryItems = Object.keys(params).map(
         (key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
     );
+    query = query.split(", ").join(",")
+    let queryItems = query.split(",")
     return queryItems.join("&");
 }
 
@@ -30,7 +32,7 @@ function displayResults(responseJson, maxResults) {
 
 function getParks(query, maxResults) {
     const params = {
-        q: query,
+        stateCode: query,
         limit: maxResults,
         api_key: apiKey,
     };

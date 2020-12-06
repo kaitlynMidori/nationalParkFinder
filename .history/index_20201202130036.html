@@ -1,4 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+<h1>
+ Vacation Planner   
+</h1>
 
+    </header>
+    <section>
+    <form id= "planning-form">
+        <label for="search-state">Search by State</label>
+        <input type="text" name="search-state" class="js-search-state">
+        <label for="search-number">
+            "How many parks?"
+        </label>
+        <input type="text" name="search-number" class="js-search-number">
+        <button type="submit">Submit</button>
+    </form>
+    <p id="js-error-message" class="error-message"></p>
+    </section>
+    <section id='results' class='hidden'>
+        <h2>Search results</h2>
+        <ul id='results-list'>
+        </ul>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>
+
+<!-- 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,4 +79,4 @@
     <script src="script.js"></script>
 </body>
 
-</html>
+</html> -->

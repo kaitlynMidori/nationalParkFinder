@@ -9,7 +9,7 @@ function formatQueryParams(params) {
     const queryItems = Object.keys(params).map(
         (key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
     );
-    return queryItems.join("&");
+    return queryItems.replace(" ", "%20");
 }
 
 function displayResults(responseJson, maxResults) {
@@ -30,7 +30,7 @@ function displayResults(responseJson, maxResults) {
 
 function getParks(query, maxResults) {
     const params = {
-        q: query,
+        stateCode: query,
         limit: maxResults,
         api_key: apiKey,
     };
