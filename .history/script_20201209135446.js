@@ -1,17 +1,28 @@
-"use strict";
 
+
+"use strict";
+​
 // put your own value below!
 const apiKey = "wveHBixTLgnXr8GvVPJfX9QIOG5d26TS4o6IgTaR";
 const searchURL = "https://developer.nps.gov/api/v1/parks";
-
-
-function formatQueryParams(params) {
-    const queryItems = Object.keys(params).map(
-        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
-    );
-    return queryItems.join('&');
+​
+//original params
+//function formatQueryParams(params) {
+//    const queryItems = Object.keys(params).map(
+//        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+//    );
+//    return queryItems.join("&");
+//}
+​
+//new params
+function formatQueryParams(params) { 
+  const queryItems = Object.keys(params) 
+    .map(key => `${key}=${params[key]}`) 
+  return queryItems.join('&'); 
 }
-
+​
+​
+​
 function displayResults(responseJson, maxResults) {
     // if there are previous results, remove them
     console.log(responseJson);
@@ -27,7 +38,7 @@ function displayResults(responseJson, maxResults) {
     //display the results section
     $("#results").removeClass("hidden");
 }
-
+​
 function getParks(query, maxResults) {
     const params = {
         stateCode: query,
@@ -36,9 +47,9 @@ function getParks(query, maxResults) {
     };
     const queryString = formatQueryParams(params);
     const url = searchURL + "?" + queryString;
-
+​
     console.log(url);
-
+​
     fetch(url)
         .then((response) => {
             if (response.ok) {
@@ -51,15 +62,17 @@ function getParks(query, maxResults) {
             $("#error-message").text(`Something went wrong: ${err.message}`);
         });
 }
-
+​
 function watchForm() {
     $("form").submit((event) => {
         event.preventDefault();
-        const stateCode = $("#stateCode").val();
+        let searchState = $("#search-state").val();
+ 	//some cool regex stuff to remove spaces
+	searchState = searchState.replace(/\s/g, '');
+	console.log(searchState);
         const maxResults = $("#max-results").val();
-        getParks(stateCode, maxResults);
+        getParks(searchState, maxResults);
     });
 }
-
+​
 $(watchForm);
-
