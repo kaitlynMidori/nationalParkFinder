@@ -30,7 +30,7 @@ function displayResults(responseJson, maxResults) {
 
 function getParks(query, maxResults) {
     const params = {
-        stateCode: query,
+        q: query,
         limit: maxResults,
         api_key: apiKey,
     };

@@ -55,11 +55,19 @@ function getParks(query, maxResults) {
 function watchForm() {
     $("form").submit((event) => {
         event.preventDefault();
-        const stateCode = $("#stateCode").val();
+                let searchState = $("#search-state").val();
+ 	//some cool regex stuff to remove spaces
+	searchState = searchState.replace(/\s/g, '');
+	console.log(searchState);
         const maxResults = $("#max-results").val();
-        getParks(stateCode, maxResults);
+        getParks(searchState, maxResults);
     });
 }
+//         const stateCode = $("#stateCode").val();
+//         const maxResults = $("#max-results").val();
+//         getParks(stateCode, maxResults);
+//     });
+// }
 
 $(watchForm);
 
