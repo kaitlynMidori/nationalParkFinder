@@ -58,3 +58,11 @@ function watchForm() {
 }
 $(watchForm);
 
+function watchForm() {
+    $("form").submit((event) => {
+        event.preventDefault();
+        const stateCode = $("#stateCode").val();
+        const maxResults = $("#max-results").val();
+        getParks(stateCode, maxResults);
+    });
+}

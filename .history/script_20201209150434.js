@@ -50,7 +50,7 @@ function getParks(query, maxResults) {
 function watchForm() {
     $("form").submit((event) => {
         event.preventDefault();
-        let stateCode = $("#stateCode").val();
+        const stateCode = $("#stateCode").val();
 	stateCode = stateCode.replace(/\s/g, '');
         const maxResults = $("#max-results").val();
         getParks(stateCode, maxResults);
@@ -58,3 +58,11 @@ function watchForm() {
 }
 $(watchForm);
 
+function watchForm() {
+    $("form").submit((event) => {
+        event.preventDefault();
+        const stateCode = $("#stateCode").val();
+        const maxResults = $("#max-results").val();
+        getParks(stateCode, maxResults);
+    });
+}

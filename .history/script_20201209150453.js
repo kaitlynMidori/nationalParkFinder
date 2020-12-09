@@ -50,11 +50,11 @@ function getParks(query, maxResults) {
 function watchForm() {
     $("form").submit((event) => {
         event.preventDefault();
-        let stateCode = $("#stateCode").val();
-	stateCode = stateCode.replace(/\s/g, '');
+        const stateCode = $("#stateCode").val();
         const maxResults = $("#max-results").val();
         getParks(stateCode, maxResults);
     });
 }
+
 $(watchForm);
 
