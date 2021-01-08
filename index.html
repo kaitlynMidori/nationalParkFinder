@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,26 +10,24 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="container">
         <h1>National Park Finder</h1>
 
         <form id="search-form">
             <p>
-                <label for="stateCode">Enter 1 or more state abbreviations, separated by commas:</label
-          >
-
-          <input type="text" name="stateCode" id="stateCode" required />
-        </p>
-
-        <p>
-          <label for="max-results">Maximum results to return: </label>
-                <input type="number" name="max-results" id="max-results" value="10" />
+                <label for="stateCode">Enter 1 or more state abbreviations, separated by commas:</label>
+                    <input type="text" name="stateCode" id="stateCode" required />
             </p>
 
-            <input type="submit" value="Find Parks!" class="submit" />
-        </form>
+            <p>
+                <label for="max-results">Maximum results to return: </label>
+                    <input type="number" name="max-results" id="max-results" value="10" />
+            </p>
 
-        <p id="error-message" class="error-message"></p>
+                <input type="submit" value="Find Parks!" class="submit" />
+    </form>
+
+        <p id="error-message"></p>
         <section id="results" class="hidden">
             <h2>Search results</h2>
             <ul id="results-list"></ul>

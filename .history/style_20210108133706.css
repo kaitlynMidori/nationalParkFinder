@@ -1,0 +1,169 @@
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+    color: black;
+    margin: auto;
+    background: cover;
+    background-image: url("screenshots/parks.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+    background-color: black;
+}
+
+#stateCode {
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 150px;
+    height: 30px;
+    margin: auto;
+    border-radius: 3px;
+    padding: 1px;
+    font-size: 18px;
+}
+
+#max-results {
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    width: 150px;
+    height: 30px;
+    margin: auto;
+    border-radius: 3px;
+    padding: 1px;
+    font-size: 18px;
+}
+
+#state-list {
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.results-amount {
+    border: 1px solid black;
+    font-size: 12px;
+    text-align: center;
+}
+
+.submit {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 150px;
+    height: 30px;
+    margin: auto;
+    border-radius: 6px;
+    padding: 1px;
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
+
+.heading {
+    text-align: center;
+    font-size: 50px;
+}
+
+.user-request-form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    border: 1px solid black;
+    padding: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+}
+
+legend {
+    text-align: center;
+}
+
+p {
+    margin: 10px;
+    display: flex;
+    width: auto;
+    justify-content: center;
+}
+
+label {
+    font-size: 17px;
+}
+
+.results-amount {
+    margin: auto;
+    width: 50px;
+    height: 25px;
+    padding: 0px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+#state-list:hover {
+    cursor: pointer;
+}
+
+.submit:hover {
+    cursor: pointer;
+}
+
+.results-amount:hover {
+    cursor: text;
+}
+
+
+/*Results Styling*/
+
+.results-display-container {
+    margin: auto;
+}
+
+#results-list {
+    color: white;
+    font-weight: bold;
+}
+
+.single-result {
+    border: 1px solid rgb(177, 175, 175);
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: -1px 2px rgb(209, 209, 209);
+    padding: 15px;
+    width: 1000px;
+    margin-bottom: 15px;
+}
+
+#description {
+    color: #222;
+}
+
+#address {
+    font-style: italic;
+    color: #222;
+}
+
+#state-list {
+    width: 100px;
+}
+
+#state-list-reference {
+    text-align: center;
+}

@@ -1,3 +1,43 @@
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: black;
+    margin: auto;
+    background: cover;
+    background-image: url("screenshots/parks.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+    background-color: black;
+}
+
+#stateCode {
+    width: 150px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    margin: auto;
+    border-radius: 3px;
+    padding: 1px;
+    font-size: 18px;
+}
+
+#max-results {
+    width: 150px;
+    height: 25px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    margin: auto;
+    border-radius: 3px;
+    padding: 1px;
+    font-size: 18px;
+}
+
 #state-list {
     border: 1px solid black;
     width: 50px;
@@ -13,6 +53,15 @@
 
 .submit {
     border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 150px;
+    height: 30px;
+    margin: auto;
+    border-radius: 6px;
+    padding: 1px;
+    font-size: 18px;
 }
 
 .hidden {
@@ -48,6 +97,10 @@ p {
     justify-content: center;
 }
 
+label {
+    font-size: 17px;
+}
+
 .results-amount {
     margin: auto;
     width: 50px;
@@ -57,16 +110,6 @@ p {
     margin-bottom: 10px;
     margin-top: 10px;
     border-radius: 6px;
-}
-
-.submit {
-    background-color: transparent;
-    width: 80px;
-    height: 18px;
-    margin: auto;
-    border-radius: 6px;
-    padding: 1px;
-    font-size: 12px;
 }
 
 #state-list:hover {
@@ -83,9 +126,22 @@ p {
 
 
 /*Results Styling*/
+h2 {
+    margin-left: 10px;
+}
+
+#results {
+    text-align: left;
+}
 
 .results-display-container {
     margin: auto;
+}
+
+#results-list {
+    margin-left: 5px;
+    color: white;
+    font-weight: bold;
 }
 
 .single-result {
